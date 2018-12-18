@@ -1,0 +1,13 @@
+@model ProductView
+@{
+    ViewData["Title"] = "Products Page";
+}
+<div class="row">
+    <div id= "Add Product" class="col-md-3">
+        @Html.Partial("_ProductsFormPartial",(ECommerce.Models.Product)@Model.Product)
+        
+    </div>
+    <div id= "ProductsList" class="col-md-9">
+        @Html.Partial("_ProductsListPartial", @Model.Products)
+    </div>
+</div>

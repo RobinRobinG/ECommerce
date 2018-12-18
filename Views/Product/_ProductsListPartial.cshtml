@@ -1,0 +1,38 @@
+
+@{
+    ViewData["Title"] = "Products List";
+}
+<h1>Products List</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Image</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Created By</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @{
+        foreach (var product in @Model)
+        {
+        <tr>
+            <td scope="col">@product.Name</td>
+            <td scope="col">@product.Description</td>
+            <td scope="col">
+                <img src="@product.Image" alt="product image" height="100" width="100" class="img-thumbnail">
+            </td>
+            <td scope="col">@product.Quantity</td>
+            <td scope="col">@product.Price</td>
+            <td scope="col">@product.CreatedById</td>
+            <td scope="col">@product.CreatedAt</td>
+            <td scope="col"><a href="/deleteproduct/@product.ProductId">Delete</a></td>
+        </tr>
+        }
+    }
+    </tbody>
+</table>

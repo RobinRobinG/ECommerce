@@ -1,0 +1,11 @@
+@model DashboardView
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<h1>Dashboard</h1>
+<div class="row">
+    <partial name="_Search" for="@Model.Products"/>
+</div>
+<div class="row">
+    <partial name="_Products" for="@Model.Products"/>
+</div>

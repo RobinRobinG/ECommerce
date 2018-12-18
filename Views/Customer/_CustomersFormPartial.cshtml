@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Customer Form";
+}
+
+<h1>Add Customer:</h1>
+<form action ="/addcustomer" method = "POST">
+    <div class="form-group">
+        <label class="control-label">Add Customer:</label>
+        <select class="form-control" name="UserId">
+        @{
+            foreach (var user in @ViewBag.NotCurrentCustomers)
+            {
+            <option value = "@user.UserId">@user.FirstName @user.LastName</option>
+            }
+        }
+        </select>
+    </div>
+    <input class="btn btn-success"  type="submit" />
+</form>

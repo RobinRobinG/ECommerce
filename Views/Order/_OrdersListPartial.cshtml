@@ -1,0 +1,34 @@
+
+@{
+    ViewData["Title"] = "Orders List";
+}
+<h1>Orders List</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Supplier Name(self)</th>
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Description</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @{
+        foreach (var o in @Model)
+        {
+        <tr>
+            <td scope="col">@o.Customer.CustomerUser.FirstName @o.Customer.CustomerUser.LastName</td>
+            <td scope="col">@o.CreatedBy.FirstName @o.CreatedBy.LastName</td>
+            <td scope="col">@o.Product.Name</td>
+            <td scope="col">@o.Quantity</td>
+            <td scope="col">@o.OrderDescription</td>
+            <td scope="col">@o.CreatedAt</td>
+            <td scope="col"><a href="/deleteorder/@o.OrderId/@o.ProductId">Delete</a></td>
+        </tr>
+        }
+    }
+    </tbody>
+</table>

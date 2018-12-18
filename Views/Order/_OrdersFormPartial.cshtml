@@ -1,0 +1,43 @@
+@model ECommerce.Models.Order
+@{
+    ViewData["Title"] = "Order Form";
+}
+<div class="header">
+    <h1>Add a new Order:</h1>
+</div>
+<form asp-action="AddOrder" asp-controller="Order" method="POST">
+    <div class="form-group">
+        <label asp-for="CustomerId" class="control-label"></label>
+        <select asp-for="CustomerId" class="form-control" >
+        @{
+            foreach (var u in @ViewBag.Customers)
+            {
+            <option value = "@u.CustomerId">@u.CustomerUser.FirstName @u.CustomerUser.LastName</option>
+            }
+        }
+        </select>
+        <span asp-validation-for="CustomerId"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Quantity" class="control-label"></label>
+        <input asp-for="Quantity" class="form-control">
+        <span asp-validation-for="Quantity"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ProductId" class="control-label"></label>
+        <select asp-for="ProductId" class="form-control" >
+        @{
+            foreach (var product in @ViewBag.Products)
+            {
+            <option value = "@product.ProductId">@product.Name</option>
+            }
+        }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="OrderDescription" class="control-label"></label>
+        <input asp-for="OrderDescription" class="form-control">
+        <span asp-validation-for="OrderDescription"></span>
+    </div>
+    <button class="btn btn-success" type="submit" >Submit</button>
+</form>

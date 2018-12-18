@@ -1,0 +1,34 @@
+@model List<Customer>;
+@{
+    ViewData["Title"] = "Customers Page";
+}
+
+<div class="row">
+    <div id= "Add Customer" class="col-md-3">
+        <partial name="_CustomersFormPartial" />
+    </div>
+    <div id= "Customers List" class="col-md-9">
+        <h1>Customers List</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Created Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            @{
+                foreach (var customer in @Model)
+                {
+                <tr>
+                    <td scope="col">@customer.CustomerUser.FirstName @customer.CustomerUser.LastName</td>
+                    <td scope="col">@customer.CreatedAt</td>
+                    <td scope="col"><a href="/deletecustomer/@customer.CustomerId">Delete</a></td>
+                </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+@model OrderView
+@{
+    ViewData["Title"] = "Orders Page";
+}
+<div class="row">
+    <div id= "Add Order" class="col-md-3">
+        @Html.Partial("_OrdersFormPartial",(ECommerce.Models.Order)@Model.Order)
+    </div>
+    <div id= "Orders List" class="col-md-9">
+        @Html.Partial("_OrdersListPartial", @Model.Orders)
+    </div>
+</div>

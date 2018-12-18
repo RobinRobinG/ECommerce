@@ -1,0 +1,12 @@
+@{
+    foreach (var product in @Model)
+    {
+    <div id= "Product card" class="card col-md-2">
+        <img src="@product.Image" alt="product image" class="img-thumbnail">
+        <div class="container">
+            <h4><a href="#">@product.Name</a></h4> 
+            <p>@product.Description</p> 
+        </div>
+    </div>
+    }
+}

@@ -1,0 +1,8 @@
+/*Write all of your CSS here*/
+.navbar {
+  border-radius: 0;
+}
+.card {
+  display: inline-block;
+  border: 1px solid #ccc;
+}
